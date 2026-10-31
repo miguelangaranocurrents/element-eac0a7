@@ -6,6 +6,12 @@ SPDX-License-Identifier: AGPL-3.0-only OR GPL-3.0-only OR LicenseRef-Element-Com
 Please see LICENSE files in the repository root for full details.
 */
 
+/* The autocomplete is positioned above the composer, so neither the wrapper nor the
+   composer may clip it with the overflow rules applied to event tile bodies. */
+div.mx_EditMessageComposerWrapper {
+    overflow: visible;
+}
+
 .mx_EditMessageComposer {
     --EditMessageComposer-padding-inline: 3px;
 
@@ -15,6 +21,10 @@ Please see LICENSE files in the repository root for full details.
     width: auto;
     gap: 5px;
     padding: 3px var(--EditMessageComposer-padding-inline);
+
+    &.mx_EventTile_content {
+        overflow: visible;
+    }
 
     .mx_BasicMessageComposer_input {
         border-radius: 4px;
